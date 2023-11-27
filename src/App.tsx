@@ -77,7 +77,7 @@ function App() {
     <>
       {
         modal && <NewProjectModal
-          handleCreateProject={handleCreateProject} />
+          handleCreateProject={handleCreateProject} closeModal={()=>setModal(false)}/>
       }
 
       <NewOperation

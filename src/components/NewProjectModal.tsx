@@ -3,16 +3,17 @@ import { IoMdClose } from "react-icons/io"
 
 interface NewProjectProp {
     handleCreateProject: (projectName: string) => void;
+    closeModal: ()=>void;
 }
 
-const NewProjectModal = ({ handleCreateProject }: NewProjectProp) => {
+const NewProjectModal = ({ handleCreateProject, closeModal }: NewProjectProp) => {
     const [projectName, setProjectName] = useState<string>('')
     return (
         <div className="project-modal-container">
             <div className="project-modal">
                 <div className="flex">
                     <h2>Add new Project</h2>
-                    <IoMdClose size={25} style={{ cursor: 'pointer' }} />
+                    <IoMdClose size={25} style={{ cursor: 'pointer' }} onClick={closeModal}/>
                 </div>
                 <div className="modal-body">
                     <input type="text" placeholder="Enter project name" value={projectName} onChange={(e) => setProjectName(e.target.value)} />
